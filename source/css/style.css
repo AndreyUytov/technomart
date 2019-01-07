@@ -1080,6 +1080,7 @@ input[type="radio"].visually-hidden {
 	position: relative;
 	width: 240px;
 	margin: 0;
+	margin-right: 80px;
 	padding: 0;
 
 	display: flex;
@@ -1130,4 +1131,11 @@ input[type="radio"].visually-hidden {
 	color: #32425c;
 	border:none;
 	box-shadow: none;
+}
+
+.services-sliders {
+	margin: 0;
+	padding: 0;
+
+	list-style: none;
 }
