@@ -1,0 +1,27 @@
+{
+  "name": "technomart",
+  "version": "1.0.0",
+  "description": "my first projekt",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndreyUytov/technomart.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AndreyUytov/technomart/issues"
+  },
+  "homepage": "https://github.com/AndreyUytov/technomart#readme",
+  "devDependencies": {
+    "autoprefixer": "^9.4.4",
+    "browser-sync": "^2.26.3",
+    "csso": "^3.5.1",
+    "del": "^3.0.0",
+    "gulp": "^4.0.0",
+    "gulp-postcss": "^8.0.0"
+  }
+}

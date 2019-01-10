@@ -3,12 +3,14 @@ var server = require("browser-sync").create();
 var postcss = require("gulp-postcss");
 var autoprefixer = require("autoprefixer");
 var del = require("del");
+var minify = require("csso");
 
 gulp.task ("style", function(){
     gulp.src("source/css/style.css")
     .pipe(postcss([
         autoprefixer()
     ]))
+    .pipe(minify())
     .pipe(gulp.dest("build/css"))
     .pipe(server.stream());
 });
