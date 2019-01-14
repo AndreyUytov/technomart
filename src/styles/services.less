@@ -1,0 +1,110 @@
+.services {
+	width: 100%;
+	background-color: #f4f8f9;
+}
+
+.services-header {
+	padding-top: 65px;
+	padding-bottom: 68px;
+}
+
+.services-title {
+	margin: 0;
+	padding: 0;
+	margin-bottom: 25px;
+
+	font-family: cuprum;
+	font-size: 30px;
+	line-height: 30px;
+	font-weight: normal;
+
+	text-transform: uppercase;
+}
+
+.services-description {
+	margin: 0;
+	padding: 0;
+	width: 400px;
+
+	font-family: ptsans;
+	font-size: 13px;
+	line-height: 24px;
+
+}
+
+.services-buttons {
+    position: relative;
+    
+	width: 240px;
+	margin: 0;
+	margin-right: 80px;
+	padding: 0;
+
+	display: inline-flex;
+	flex-direction: column;
+	align-items: left;
+
+
+	list-style: none;
+}
+
+.services-buttons::after {
+	content: "";
+	position: absolute;
+	right: 0px;
+	top: 50%;
+	width: 10px;
+	height: 272px;
+	transform: translateY(-50%);
+
+	background-image: url(../img/services-shadow.png);
+	background-repeat: no-repeat;
+}
+
+.services-btn {
+	width: 240px;
+	height: 61px;
+	padding-left: 23px;
+	margin-top: -1px;
+
+	display: inline-flex;
+	align-items: center;
+	justify-content: flex-start;
+	
+	font-family: cuprumbold;
+	font-size: 21px;
+	line-height: 30px;
+	color: #ffffff;
+	
+	border: none;
+	border-top: 2px solid #4d637b;
+	background-color: #32425c;
+    box-shadow: 0px 1px 0px 0px rgba(51, 68, 90, 1) inset;
+    cursor: pointer;
+    &:hover,
+    &:focus {
+        background-color: #293449;
+    }
+}
+
+.services-buttons__active .services-btn {
+	margin-top: 0px;
+	background-color: #ffffff;
+	color: #32425c;
+	border:none;
+	box-shadow: none;
+}
+
+.services-sliders {
+    .ul-reset();
+    width: 620px;
+    display: inline-flex;
+    
+}
+
+.services-slider {
+    display: inline-flex;
+    flex-direction: column; 
+
+    width: 620px;
+}

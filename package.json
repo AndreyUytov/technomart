@@ -7,6 +7,7 @@
     "gulp": "^4.0.0"
   },
   "devDependencies": {
+    "autoprefixer": "^9.4.5",
     "browser-sync": "^2.26.3",
     "del": "^3.0.0",
     "gulp-concat": "^2.6.1",
@@ -15,6 +16,7 @@
     "gulp-newer": "^1.4.0",
     "gulp-notify": "^3.2.0",
     "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^8.0.0",
     "gulp-sourcemaps": "^2.6.4",
     "newer": "^0.1.5"
   },

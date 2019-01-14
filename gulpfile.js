@@ -9,6 +9,8 @@ const newer = require ('gulp-newer');
 const browserSync = require('browser-sync').create();
 const notify = require('gulp-notify');
 const plumber = require('gulp-plumber');
+const postcss = require('gulp-postcss');
+const autoprefixer = require('autoprefixer');
 
 const isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV == 'development';
 
@@ -24,6 +26,7 @@ gulp.task('styles', function(){
     }))
     .pipe(gulpIf(isDevelopment, sourcemaps.init()))
     .pipe(less())
+    .pipe(postcss([autoprefixer()]))
     .pipe(gulpIf(isDevelopment, sourcemaps.write()))
     .pipe(gulp.dest('build/styles'));
 });
