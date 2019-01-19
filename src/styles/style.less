@@ -992,17 +992,15 @@ input[type="radio"].visually-hidden {
 /*Показывает кнопки купить, в закладки*/
 
 @keyframes shake {
-	0% {transform: translateY(-1000px);}
-	50% {transform: translateY(30px);}
-	80% {transform: translateY(-30px);}
-	100%{transform: translateY(0px);}
+	0%   { transform: rotateY(0deg); }
+  100% { transform: rotateY(-360deg); }
 }
 
 .wrapper-card:hover + .card-item--hover,
 .wrapper-card:focus + .card-item--hover {
 	display: block;
 	animation-name: shake;
-	animation-duration: 0.6s;
+	animation-duration: 0.3s;
 }
 
 .card-item--hover:hover, 
@@ -1059,3 +1057,6 @@ input[type="radio"].visually-hidden {
 
 // Блок Footer
 @import "footer.less";
+
+// JS классы
+@import "js-class.less";
