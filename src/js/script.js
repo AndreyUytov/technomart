@@ -17,12 +17,12 @@ btn.addEventListener('click', function(evt) {
     for (var i = 0; i < radioBtns.length; i++) {
         var button = radioBtns[i];
         var slider = sliders[i];
-        addCliker(button, slider);
+				addCliker(button, slider);
     };
 });
 };
 
 for (var index = 0; index < radioBtns.length; index++) {
     var btn = radioBtns[index];
-    clickHandler(btn);
+		clickHandler(btn);
 };
