@@ -1,40 +1,28 @@
-﻿'use strict';
+'use strict';
 
-var radioBtn = document.querySelector('.radio-btn:checked');
+var radioBtns = document.querySelectorAll('.radio-btn');
 var sliders = document.querySelectorAll('.services-slider');
 
-var addClickListener = function () {
-    if (radioBtn.classList.contains('radio-btn:nth-child(1)')) {
-        console.log('YEs');
+
+var addCliker = function (button, slider) {
+    if (button.checked) {
+        slider.classList.add('show-slider');
+    }else if(!button.checked) {
+        slider.classList.remove('show-slider');
     }
-}
+};
 
+var clickHandler = function(btn) {
+btn.addEventListener('click', function(evt) {
+    for (var i = 0; i < radioBtns.length; i++) {
+        var button = radioBtns[i];
+        var slider = sliders[i];
+        addCliker(button, slider);
+    };
+});
+};
 
-
-// var activeBtns = document.querySelectorAll("services-btn--active");
-// var cleanClass = function () {
-//     for (var ind = 0; ind<activeBtns.length; ind++) {
-//         var activeBtn = activeBtns[ind];
-//         activeBtn.classList.remove("services-btn--active");
-//     };
-//     console.log(ind);
-// }
-
-// var addClickListener = function(button) {
-//     button.addEventListener('click', function(evt){
-//         evt.preventDefault();
-//         if (!button.classList.contains("services-btn--active")){
-//             button.classList.add("services-btn--active");
-//         };
-
-//     })
-// };
-// var addShowSlider = function (slider) {
-//     slider.classList.add("show-service");
-// }
-
-// for(var i=0; i<buttons.length; i++){
-//     cleanClass();
-//     var button = buttons[i];
-//     addClickListener(button);
-// };
+for (var index = 0; index < radioBtns.length; index++) {
+    var btn = radioBtns[index];
+    clickHandler(btn);
+};
