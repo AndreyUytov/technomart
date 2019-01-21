@@ -56,7 +56,7 @@ writeBtn.addEventListener('click', function (evt){
     if (storageName) {
         focusName.value = storageName;
         focusMail.focus();
-    }if(storageMail && storageName) {
+    }if(storageName && storageMail) {
         focusName.value = storageName;
         focusMail.value = storageMail;
         focusTextArea.focus();
@@ -66,12 +66,13 @@ writeBtn.addEventListener('click', function (evt){
 });
 
 formWriteUs.addEventListener('submit', function(evt){
+    
+    console.log(focusName.value);
     if(!focusName.value || !focusMail.value || !focusTextArea.value){
         evt.preventDefault();
-        console.log(focusTextArea.value);
-    // popup.classList.remove('shake-form');
-    // popup.offsetWidth = popup.offsetWidth;
-    // popup.classList.add('shake-form');
+    popup.classList.remove('shake-form');
+    popup.offsetWidth = popup.offsetWidth;
+    popup.classList.add('shake-form');
 } else {
     if (isStorageSupport) {
         localStorage.setItem("focusName", focusName.value);
