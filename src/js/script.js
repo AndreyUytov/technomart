@@ -24,7 +24,7 @@ btn.addEventListener('click', function(evt) {
 
 for (var index = 0; index < radioBtns.length; index++) {
     var btn = radioBtns[index];
-		clickHandler(btn);
+        clickHandler(btn);
 };
 
 // Для попапа блока "напишите нам"
@@ -97,3 +97,58 @@ window.addEventListener("keydown", function (evt) {
         }
     }
 });
+
+// Блок слайдеров
+
+
+
+var nextSlider = document.querySelector('.right-btn');
+var prevSlider = document.querySelector('.left-btn');
+
+var sliderDots = document.querySelectorAll('.slider-dots__item');
+var banners = document.querySelectorAll('.slider-list__item');
+
+var searchCurrentSlider = function (banners) {
+	for (var i = 0; i < banners.length; i++) {
+		if (banners[i].classList.contains('slider-list__item--active')) { 
+			return i;
+		}
+	}
+};
+
+var nextSliderOn = function (nextSlider) {
+	nextSlider.addEventListener('click', function(evt) {
+    var i = searchCurrentSlider(banners);
+    banners[i].classList.remove('slider-list__item--active');
+    sliderDots[i].classList.remove('slider-dots__item--active');
+    var next = i + 1;
+    if (next < banners.length) {
+        banners[next].classList.add('slider-list__item--active');
+        sliderDots[next].classList.add('slider-dots__item--active');
+    } else {
+        next = 0;
+        banners[next].classList.add('slider-list__item--active');
+        sliderDots[next].classList.add('slider-dots__item--active');
+    };
+	})
+};
+ 
+var prevSliderOn = function (prevSlider) {
+    prevSlider.addEventListener('click', function(evt) {
+    var i = searchCurrentSlider(banners);
+    banners[i].classList.remove('slider-list__item--active');
+    sliderDots[i].classList.remove('slider-dots__item--active');
+    var next = i - 1;
+    if (next >= 0) {
+        banners[next].classList.add('slider-list__item--active');
+        sliderDots[next].classList.add('slider-dots__item--active');
+    } else {
+        next = banners.length - 1;
+        banners[next].classList.add('slider-list__item--active');
+        sliderDots[next].classList.add('slider-dots__item--active');
+    };
+	})
+};
+
+nextSliderOn(nextSlider);
+prevSliderOn(prevSlider);

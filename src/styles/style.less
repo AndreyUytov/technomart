@@ -728,7 +728,13 @@ input[type="radio"].visually-hidden {
 	background-color: transparent;
 	background-repeat: no-repeat;
 	cursor: pointer;
-
+	&:hover,
+	&:focus {
+		transform: scale(1.2, 1.2);
+	}
+	&:active {
+		transform: scale(0.8, 0.8);
+	}
 }
 
 .left-btn {
