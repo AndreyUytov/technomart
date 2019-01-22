@@ -111,6 +111,8 @@ var banners = document.querySelectorAll('.slider-list__item');
 var searchCurrentSlider = function (banners) {
 	for (var i = 0; i < banners.length; i++) {
 		if (banners[i].classList.contains('slider-list__item--active')) { 
+            banners[i].classList.remove('slider-list__item--active');
+            sliderDots[i].classList.remove('slider-dots__item--active');
 			return i;
 		}
 	}
@@ -119,8 +121,6 @@ var searchCurrentSlider = function (banners) {
 var nextSliderOn = function (nextSlider) {
 	nextSlider.addEventListener('click', function(evt) {
     var i = searchCurrentSlider(banners);
-    banners[i].classList.remove('slider-list__item--active');
-    sliderDots[i].classList.remove('slider-dots__item--active');
     var next = i + 1;
     if (next < banners.length) {
         banners[next].classList.add('slider-list__item--active');
@@ -136,16 +136,14 @@ var nextSliderOn = function (nextSlider) {
 var prevSliderOn = function (prevSlider) {
     prevSlider.addEventListener('click', function(evt) {
     var i = searchCurrentSlider(banners);
-    banners[i].classList.remove('slider-list__item--active');
-    sliderDots[i].classList.remove('slider-dots__item--active');
-    var next = i - 1;
-    if (next >= 0) {
-        banners[next].classList.add('slider-list__item--active');
-        sliderDots[next].classList.add('slider-dots__item--active');
+    var prev = i - 1;
+    if (prev >= 0) {
+        banners[prev].classList.add('slider-list__item--active');
+        sliderDots[prev].classList.add('slider-dots__item--active');
     } else {
-        next = banners.length - 1;
-        banners[next].classList.add('slider-list__item--active');
-        sliderDots[next].classList.add('slider-dots__item--active');
+        prev = banners.length - 1;
+        banners[prev].classList.add('slider-list__item--active');
+        sliderDots[prev].classList.add('slider-dots__item--active');
     };
 	})
 };
