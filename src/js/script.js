@@ -150,3 +150,18 @@ var prevSliderOn = function (prevSlider) {
 
 nextSliderOn(nextSlider);
 prevSliderOn(prevSlider);
+
+// Блок карты 
+ var miniMap = document.querySelector('.about-company__link');
+ var bigMap = document.querySelector('.big-map');
+ var closeBigMap = document.querySelector('.close-map-btn');
+
+ miniMap.addEventListener('click', function (evt){
+     evt.preventDefault();
+     bigMap.classList.add('show-map');
+ });
+
+ closeBigMap.addEventListener('click', function(evt){
+     evt.preventDefault();
+     bigMap.classList.remove('show-map');
+ });
