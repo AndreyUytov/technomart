@@ -124,6 +124,20 @@ input[type="radio"].visually-hidden {
 	cursor: pointer;
 }
 
+.button--order {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+
+	font-family: cuprum;
+	font-size: 17px;
+	line-height: 18px;
+	color: #ffffff;
+
+	border: none;
+	cursor: pointer;
+}
+
 .button-standart {
 	text-transform: uppercase;
 
@@ -307,6 +321,11 @@ input[type="radio"].visually-hidden {
 
 	padding-left: 13px;
 }
+//  когда корзина не пустая, у нее появляется этот класс, 
+// а фоновый цвет становится #ee3643;
+.chosen-list__item--active {
+	background-color: #ee3643;
+}
 
 .chosen-list__item::before {
 	content: "";
@@ -378,7 +397,6 @@ input[type="radio"].visually-hidden {
 .wrapper__menu-description {
 	display: flex;
 	justify-content: flex-start;
-	align-items: top;
 
 	padding-top: 31px;
 }
@@ -1072,9 +1090,24 @@ input[type="radio"].visually-hidden {
 @import "index-block/map-popup.less";
 
 
+// 
+// 
+// 
+// БЛОК для каталога
+@import "catalog-block/user-block.less";
+
+// Блок хлебных крошек
+@import "catalog-block/bread-crumbs.less";
+
+// Блок заголовка католога с товарами
+@import "catalog-block/title-catalog.less";
+
+// Блок фильтров в каталоге
+
+@import "catalog-block/filters.less";
+
+
 
 // JS классы в конце главного стайл файла
 @import "index-block/js-class.less";
 
-// БЛОК для каталога
-@import "catalog-block/user-block.less";
