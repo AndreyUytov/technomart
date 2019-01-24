@@ -165,3 +165,20 @@ prevSliderOn(prevSlider);
      evt.preventDefault();
      bigMap.classList.remove('show-map');
  });
+
+//  Счетчик для корзины и закладок
+var basket = document.querySelector('.chosen-list__item--basket b');
+var bookmark = document.querySelector('.chosen-list__item--bookmark b');
+
+ function makeCounter (elem) {
+    var innerCounter = 1;
+    elem.textContent = innerCounter;
+    
+    return function() {
+        return innerCounter ++;
+
+    }
+};
+
+var counterBasket = makeCounter();
+var counterBookmark = makeCounter();
