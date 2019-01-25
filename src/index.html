@@ -17,8 +17,8 @@
 					</button>					
 				</form>
 				<ul class="chosen-list">
-					<li><a class="chosen-list__item button--order chosen-list__item--bookmark" href="#">Закладки: 0</a></li>
-					<li><a class="chosen-list__item button--order chosen-list__item--basket" href="#">Корзина: 0</a></li>
+					<li><a class="chosen-list__item button--order chosen-list__item--bookmark" href="#">Закладки: <span>0</span></a></li>
+					<li><a class="chosen-list__item button--order chosen-list__item--basket" href="#">Корзина: <span>0</span></a></li>
 				</ul>
 				<a class="order-btn button--order" href="#">Оформить заказ</a>
 			</div>
@@ -364,6 +364,20 @@
 		<img src="img/big_map.jpg" width="940" height="446" alt="Карта проезда к магазину">
 		<button type="button" class="close-map-btn"></button>
 	</div>
+
+	<div class="popup-basket">
+			<p class="popup-basket__paragraph">
+				Товар добавлен в корзину!
+			</p>
+			<div class="popup-basket__buttons">
+				<button type="button" class="button button-standart buttons__button-check">Оформить заказ</button>
+				<button type="button" class="button button-standart buttons__button-keep-buy">продолжить покупки</button>
+			</div>
+			<button type="button" class="close-popup-basket">
+					<svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21"><path fill="#EE3643" d="M13.273 10.5l7.422-7.422a1.003 1.003 0 0 0 0-1.414L19.336.305a1.003 1.003 0 0 0-1.414 0L10.5 7.727 3.078.305a1.003 1.003 0 0 0-1.414 0L.305 1.664a1.003 1.003 0 0 0 0 1.414L7.727 10.5.306 17.922a1.003 1.003 0 0 0 0 1.414l1.359 1.359a1.003 1.003 0 0 0 1.414 0l7.422-7.422 7.422 7.422a1.003 1.003 0 0 0 1.414 0l1.359-1.359a1.003 1.003 0 0 0 0-1.414L13.273 10.5z"/></svg>
+			</button>
+		</div>
+	
 	
 <script src="js/script.js"></script>	
 </body>
