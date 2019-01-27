@@ -76,22 +76,23 @@ var mouseDownOn = function (button) {
 	button.addEventListener('mousedown', function (evtDown){
 		evtDown.preventDefault();
 		var startCoord = {
-			x: evtDown.clientX,
-			y: evtDown.clientY
+			x: evtDown.clientX
 		};
-
 		var onMouseMove = function (moveEvt){
 			var shift = {
-				x: startCoord.x - moveEvt.clientX,
-				y: startCoord.y - moveEvt.clientY
+				x: startCoord.x - moveEvt.clientX
 			};
 
 			startCoord = {
-				x: moveEvt.clientX,
-				y: moveEvt.clientY
+				x: moveEvt.clientX
 			};
-			setup.style.top = (setup.offsetTop - shift.y) + 'px';
-			setup.style.left = (setup.offsetLeft - shift.x) + 'px';
+			toggleMin.style.left = (toggleMin.offsetLeft - shift.x) + 'px';
+		};
+
+		var onMouseUp = function (mouseUp){
+			mouseUp.preventDefault();
+			document.removeEventListener('mousemove', mouseDownOn);
+			document.removeEventListener('mousemove', onMouseMove);
 		}
 
 		document.addEventListener('mousemove', onMouseMove);
@@ -99,3 +100,4 @@ var mouseDownOn = function (button) {
 	});
 };
 
+mouseDownOn (toggleMin);
