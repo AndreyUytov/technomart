@@ -229,3 +229,36 @@ for (var i = 0; i < buttonBuys.length; i++) {
 	var buttonBuy = buttonBuys[i];
 	clickerToButtonbasket(buttonBuy);
 };
+
+//  перемещение
+
+var mouseDownOn = function (button) {
+	button.addEventListener('mousedown', function (evtDown){
+		evtDown.preventDefault();
+		var startCoord = {
+			x: evtDown.clientX,
+			y: evtDown.clientY
+		};
+
+		var onMouseMove = function (moveEvt){
+			var shift = {
+				x: startCoord.x - moveEvt.clientX,
+				y: startCoord.y - moveEvt.clientY
+			};
+
+			startCoord = {
+				x: moveEvt.clientX,
+				y: moveEvt.clientY
+			};
+			popup.style.top = (popup.offsetTop - shift.y) + 'px';
+			popup.style.left = (popup.offsetLeft - shift.x) + 'px';
+		}
+
+		document.addEventListener('mousemove', onMouseMove);
+		// document.addEventListener('mouseup', onMouseUp);
+	});
+};
+
+var moveWriteUs = document.querySelector('.moveTo');
+
+mouseDownOn (moveWriteUs);

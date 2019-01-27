@@ -1,5 +1,6 @@
 'use strict';
 
+
 ///  Счетчик для корзины и закладок
 var basket = document.querySelector('.chosen-list__item--basket span');
 var basketPapa = document.querySelector('.chosen-list__item--basket');
@@ -63,3 +64,38 @@ for (var i = 0; i < buttonBuys.length; i++) {
 	var buttonBuy = buttonBuys[i];
 	clickerToButtonbasket(buttonBuy);
 };
+
+
+// Блок для фильтра с ползунком 
+var rangeFilter = document.querySelector('.range-filter');
+
+var toggleMin = rangeFilter.querySelector('.toggle-min');
+var toggleMax = rangeFilter.querySelector('.toggle-max');
+
+var mouseDownOn = function (button) {
+	button.addEventListener('mousedown', function (evtDown){
+		evtDown.preventDefault();
+		var startCoord = {
+			x: evtDown.clientX,
+			y: evtDown.clientY
+		};
+
+		var onMouseMove = function (moveEvt){
+			var shift = {
+				x: startCoord.x - moveEvt.clientX,
+				y: startCoord.y - moveEvt.clientY
+			};
+
+			startCoord = {
+				x: moveEvt.clientX,
+				y: moveEvt.clientY
+			};
+			setup.style.top = (setup.offsetTop - shift.y) + 'px';
+			setup.style.left = (setup.offsetLeft - shift.x) + 'px';
+		}
+
+		document.addEventListener('mousemove', onMouseMove);
+		document.addEventListener('mouseup', onMouseUp);
+	});
+};
+
