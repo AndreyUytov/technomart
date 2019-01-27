@@ -84,8 +84,10 @@ formWriteUs.addEventListener('submit', function(evt){
 closeBtn.addEventListener('click', function(evt){
     evt.preventDefault();
     popup.classList.remove('show-popup');
-    popup.classList.remove('shake-form');
-
+		popup.classList.remove('shake-form');
+		popup.style.top = 250 + 'px';
+		popup.style.left = 50 + '%';
+		popup.style.marginLeft = '-310px';
 });
 
 window.addEventListener("keydown", function (evt) {
@@ -93,7 +95,10 @@ window.addEventListener("keydown", function (evt) {
      if (popup.classList.contains("show-popup")) {
          evt.preventDefault();
          popup.classList.remove("show-popup");
-         popup.classList.remove('shake-form');
+				 popup.classList.remove('shake-form');
+				 popup.style.top = 250 + 'px';
+				 popup.style.left = 50 + '%';
+				 popup.style.marginLeft = '-310px';
         }
     }
 });
@@ -239,7 +244,6 @@ var mouseDownOn = function (button) {
 			x: evtDown.clientX,
 			y: evtDown.clientY
 		};
-
 		var onMouseMove = function (moveEvt){
 			var shift = {
 				x: startCoord.x - moveEvt.clientX,
@@ -252,10 +256,18 @@ var mouseDownOn = function (button) {
 			};
 			popup.style.top = (popup.offsetTop - shift.y) + 'px';
 			popup.style.left = (popup.offsetLeft - shift.x) + 'px';
+			popup.style.margin = 0;
+			popup.style.height = '430px';
+		};
+
+		var onMouseUp = function (mouseUp){
+			mouseUp.preventDefault();
+			document.removeEventListener('mousemove', mouseDownOn);
+			document.removeEventListener('mousemove', onMouseMove);
 		}
 
 		document.addEventListener('mousemove', onMouseMove);
-		// document.addEventListener('mouseup', onMouseUp);
+		document.addEventListener('mouseup', onMouseUp);
 	});
 };
 
