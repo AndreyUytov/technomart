@@ -1,6 +1,7 @@
 'use strict';
 
 
+
 ///  Счетчик для корзины и закладок
 var basket = document.querySelector('.chosen-list__item--basket span');
 var basketPapa = document.querySelector('.chosen-list__item--basket');
@@ -180,3 +181,126 @@ minPrice.addEventListener ('change', function(evt){
 		scale.style.paddingLeft = (toggleMin.offsetLeft - 20) + 'px';
 	}
 });
+
+// проба с шаблонизацией
+
+
+var cardItems = [
+	{
+		name:'Перфоратор BOSCH BFG 3000',
+		delPrice: 22500,
+		newPrice: 15500,
+		src: 'img/snippet2.jpg'
+	},
+	{
+		name:'Перфоратор BOSCH BFG 6000',
+		delPrice:30500,
+		newPrice:25500,
+		src:'img/snippet3.jpg'
+	},
+	{
+		name:'Перфоратор BOSCH BFG 2000',
+		delPrice: null,
+		newPrice:12500,
+		src:'img/snippet4.jpg'
+	},
+	{
+		name:'Перфоратор BOSCH BFG 3000',
+		delPrice:22500,
+		newPrice:15500,
+		src:'img/snippet2.jpg'
+	},
+	{
+		name:'Перфоратор BOSCH BFG 6000',
+		delPrice:30500,
+		newPrice:25500,
+		src:'img/snippet3.jpg'
+	},
+	{
+		name:'Перфоратор BOSCH BFG 2000',
+		delPrice: null,
+		newPrice: 12500,
+		src:'img/snippet4.jpg'
+	},
+	{
+		name:'Перфоратор BOSCH BFG 3000',
+		delPrice:22500,
+		newPrice:15500,
+		src:'img/snippet2.jpg'
+	},
+	{
+		name:'Перфоратор BOSCH BFG 6000',
+		delPrice:30500,
+		newPrice:25500,
+		src:'img/snippet3.jpg'
+	},
+	{
+		name:'Перфоратор BOSCH BFG 2000',
+		delPrice: null,
+		newPrice:12500,
+		src:'img/snippet4.jpg'
+	},
+	{
+		name:'Перфоратор BOSCH BFG 6301',
+		delPrice:26500,
+		newPrice:25500,
+		src:'img/snippet3.jpg'
+	},
+	{
+		name:'Перфоратор BOSCH BFG 6001',
+		delPrice:32500,
+		newPrice:24500,
+		src:'img/snippet4.jpg'
+	},
+	{
+		name:'Перфоратор BOSCH BFG 6050',
+		delPrice:33500,
+		newPrice:21500,
+		src:'img/snippet2.jpg'
+	},
+	{
+		name:'Перфоратор BOSCH BFG 2560',
+		delPrice:28500,
+		newPrice:24500,
+		src:'img/snippet4.jpg'
+	},
+	{
+		name:'Перфоратор BOSCH BFG 1000',
+		delPrice:25500,
+		newPrice:19500,
+		src:'img/snippet3.jpg'
+	},
+	{
+		name:'Перфоратор BOSCH BFG 7000',
+		delPrice:38500,
+		newPrice:25500,
+		src:'img/snippet4.jpg'
+	},
+	{
+		name:'Перфоратор BOSCH BFG 620',
+		delPrice:8500,
+		newPrice:25500,
+		src:'img/snippet3.jpg'
+	},
+];
+
+var catalogItems = document.querySelector('.list-flex-wrap--catalog');
+var templateItem = document.querySelector('.template-item').content.cloneNode(true);
+var nameTemp = templateItem.querySelector('h3');
+var delPriceTemp = templateItem.querySelector('del');
+var currentPriceTemp = templateItem.querySelector('.price-btn');
+var imgTemp = templateItem.querySelector('img');
+
+var renderPage = function () {
+	
+	var arrNames = cardItems.map(function(item){
+		return item.name;
+	});
+	for (var i = 0; i < 9; i++) {
+		nameTemp.textContent = arrNames[i];
+		catalogItems.appendChild(templateItem);
+		
+	}
+};
+
+renderPage();
