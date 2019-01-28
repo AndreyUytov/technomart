@@ -85,7 +85,7 @@ closeBtn.addEventListener('click', function(evt){
     evt.preventDefault();
     popup.classList.remove('show-popup');
 		popup.classList.remove('shake-form');
-		popup.style.top = 250 + 'px';
+		popup.style.top = 220 + 'px';
 		popup.style.left = 50 + '%';
 		popup.style.marginLeft = '-310px';
 });
@@ -96,7 +96,7 @@ window.addEventListener("keydown", function (evt) {
          evt.preventDefault();
          popup.classList.remove("show-popup");
 				 popup.classList.remove('shake-form');
-				 popup.style.top = 250 + 'px';
+				 popup.style.top = 220 + 'px';
 				 popup.style.left = 50 + '%';
 				 popup.style.marginLeft = '-310px';
         }
@@ -205,6 +205,7 @@ var counterBasket = makeCounter ();
 
 var buttonBuys = document.querySelectorAll('.card-item__button-buy');
 var buttonFavorites = document.querySelectorAll('.card-item__button-favorite');
+console.log('buttonFavorites');
 
 var clickerToButtonbookmark = function (buttons) {
 	buttons.addEventListener ('click', function (evt){
