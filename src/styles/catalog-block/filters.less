@@ -408,8 +408,22 @@
 
 .pagination-button {
     width: 140px;
+    height: 38px;
     text-transform: uppercase;
     background-color: transparent;
+    border: 1px solid #e5e5e5;
+    color: #000000;
+    font-family: ptsans;
+    font-size: 13px;
+    line-height: 18px;
+    &:hover,
+    &:focus {
+        border: 1px solid #bdc6ca;
+    }
+    &:active {
+        border: 1px solid #ee3643;
+        outline: #ee3643;
+    }
 }
 
 .page-description-block {

@@ -172,7 +172,8 @@ prevSliderOn(prevSlider);
  });
 
 //  Счетчик для корзины и закладок
-var basket = document.querySelector('.chosen-list__item--basket span');
+(function()
+{var basket = document.querySelector('.chosen-list__item--basket span');
 var basketPapa = document.querySelector('.chosen-list__item--basket');
 var bookmark = document.querySelector('.chosen-list__item--bookmark span');
 var bookmarkPapa = document.querySelector('.chosen-list__item--bookmark');
@@ -205,7 +206,6 @@ var counterBasket = makeCounter ();
 
 var buttonBuys = document.querySelectorAll('.card-item__button-buy');
 var buttonFavorites = document.querySelectorAll('.card-item__button-favorite');
-console.log('buttonFavorites');
 
 var clickerToButtonbookmark = function (buttons) {
 	buttons.addEventListener ('click', function (evt){
@@ -235,6 +235,7 @@ for (var i = 0; i < buttonBuys.length; i++) {
 	var buttonBuy = buttonBuys[i];
 	clickerToButtonbasket(buttonBuy);
 };
+})();
 
 //  перемещение
 

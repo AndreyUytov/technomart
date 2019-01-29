@@ -238,7 +238,20 @@ var renderPageDefault = function (cardItemsSort) {
 	var img = cardItemsSort.map(function(item){
 		return item.src;
 	});
-	for (var i = 0; i < 9; i++) {
+	// для очистки преидущей сортировки
+	var listRemover = function() {
+		var itemsRemoves = catalogItems.querySelectorAll('li');
+		for(var i = 0; i < itemsRemoves.length; i++){
+			var deleteElement = itemsRemoves[i];
+			deleteElement.remove();
+
+		};
+	};
+	listRemover();
+// Отрисока по страницам (на каждой странице максимум 9 элементов)
+var pageOneClick = function (){
+
+	for (var i = 0; i < 8; i++) {
 		var card = templateItem.cloneNode(true);
 		card.querySelector('h3').textContent = arrNames[i];
 		card.querySelector('del').textContent = delPrice[i] + ' Р.';
@@ -246,9 +259,61 @@ var renderPageDefault = function (cardItemsSort) {
 		card.querySelector('img').src = img[i];
 
 		catalogItems.appendChild(card);
-		
-	}
+	};
 };
+
+var pageTwoClick = function(){
+	for (var i = 9; i < 18; i++) {
+		var card = templateItem.cloneNode(true);
+		card.querySelector('h3').textContent = arrNames[i];
+		card.querySelector('del').textContent = delPrice[i] + ' Р.';
+		card.querySelector('.price-btn').textContent = newPrice[i] + ' Р.';
+		card.querySelector('img').src = img[i];
+
+		catalogItems.appendChild(card);
+	};
+};
+
+var pageThreeClick = function(){
+	for (var i = 19; i < 28; i++) {
+		var card = templateItem.cloneNode(true);
+		card.querySelector('h3').textContent = arrNames[i];
+		card.querySelector('del').textContent = delPrice[i] + ' Р.';
+		card.querySelector('.price-btn').textContent = newPrice[i] + ' Р.';
+		card.querySelector('img').src = img[i];
+
+		catalogItems.appendChild(card);
+	};
+};
+// для поиска активной страницы
+var paginationItems = document.querySelectorAll('.pagination-item');
+	var activePageIndex = function(){
+		for(var i = 0; i < paginationItems.length; i++){
+			var page = paginationItems[i];
+			if(page.classList.contains('pagination-item--active')) {
+				return i;
+			};
+		};
+	};
+	// Для отрисовки содержимого активной страницы
+	var renderActivePage = function (i){
+		if(i = 0){
+			pageOneClick();
+		}else if(i = 1){
+			pageTwoClick();
+		}else if(i = 2){
+			pageThreeClick();
+		};
+	};
+	renderActivePage(activePageIndex);
+// для работы счетчика
+BigCounterFunc();
+};
+
+
+
+// Различные сортировки
+
 
 var sortByPriceUp = function() {
 	var cardItemsCopy = cardItems.slice();
@@ -273,7 +338,7 @@ var subListItemDown = document.querySelector('.sublist__item-down');
 subListItemUp.addEventListener('click', function(evt){
 	evt.preventDefault();
 	var arr = sortByPriceUp();
-	catalogItems.removeChild('li');
+	
 
 	renderPageDefault(arr);
 });
@@ -284,67 +349,5 @@ subListItemDown.addEventListener('click', function(evt){
 	renderPageDefault(arr);
 });
 
+renderPageDefault(cardItems);
 
-///  Счетчик для корзины и закладок
-var basket = document.querySelector('.chosen-list__item--basket span');
-var basketPapa = document.querySelector('.chosen-list__item--basket');
-var bookmark = document.querySelector('.chosen-list__item--bookmark span');
-var bookmarkPapa = document.querySelector('.chosen-list__item--bookmark');
-var popupBasket = document.querySelector('.popup-basket');
-var popupBasketClose = document.querySelector('.close-popup-basket');
-var popupBasketClose2 = document.querySelector('.buttons__button-keep-buy');
-
-popupBasketClose.addEventListener('click', function (evt){
-	evt.preventDefault();
-	popupBasket.classList.remove('show-slider');
-});
-
-popupBasketClose2.addEventListener('click', function (evt){
-	evt.preventDefault();
-	popupBasket.classList.remove('show-slider');
-});
-
-
-  function makeCounter() {
-		function counter() {
-			return counter.currentCount++;
-		};
-		counter.currentCount = 1;
-		return counter;
-};
-
-
-var counterBookmark = makeCounter ();
-var counterBasket = makeCounter ();
-
-var buttonBuys = document.querySelectorAll('.card-item__button-buy');
-var buttonFavorites = document.querySelectorAll('.card-item__button-favorite');
-
-var clickerToButtonbookmark = function (buttons) {
-	buttons.addEventListener ('click', function (evt){
-		evt.preventDefault();
-		bookmark.textContent = ' ' + counterBookmark();
-		bookmarkPapa.classList.add('chosen-list__item--active');
-	})
-};
-
-
-
-for (var i = 0; i < buttonFavorites.length; i++) {
-	var buttonBasket = buttonFavorites[i];
-	clickerToButtonbookmark(buttonBasket);
-};
-
-var clickerToButtonbasket = function (buttons) {
-	buttons.addEventListener ('click', function (evt){
-		evt.preventDefault();
-		basket.textContent = ' ' + counterBasket();
-		basketPapa.classList.add('chosen-list__item--active');
-		popupBasket.classList.add('show-slider');
-	})
-};
-
-for (var i = 0; i < buttonBuys.length; i++) {
-	var buttonBuy = buttonBuys[i];
-	clickerToButtonbasket(buttonBuy);
-};
