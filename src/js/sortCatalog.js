@@ -27,10 +27,10 @@ var renderPageDefault = function (arr) {
             for (var i = 0; i < 9; i++) {
                 var card = templateItem.cloneNode(true);
 								card.querySelector('h3').textContent = arrNames[i];
-                card.querySelector('del').textContent = delPrice[i] + ' Р.';
+                card.querySelector('del').textContent = delPrice[i];
                 card.querySelector('.price-btn').textContent = newPrice[i] + ' Р.';
                 card.querySelector('img').src = img[i];
-        
+
 								catalogItems.appendChild(card);
 								
             };

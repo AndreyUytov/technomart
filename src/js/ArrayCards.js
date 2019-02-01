@@ -38,7 +38,7 @@ var cardItems = [
 	},
 	{
 		name:'Перфоратор INTERSCOL 2000',
-		delPrice: 100000,
+		delPrice: '',
 		newPrice: 3500,
 		src:'img/snippet4.jpg'
 	},
