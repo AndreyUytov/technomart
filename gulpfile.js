@@ -11,8 +11,19 @@ const notify = require('gulp-notify');
 const plumber = require('gulp-plumber');
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
+const imagemin = require('gulp-imagemin');
 
 const isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV == 'development';
+
+gulp.task('images', function(){
+    return gulp.src('src/img/**/*.{png,jpg,svg}')
+    .pipe(imagemin([
+        imagemin.optipng({optimizationLevel:3}),
+        imagemin.jpegtran({progressive:true}),
+        imagemin.svgo()
+    ]))
+    .pipe(gulp.dest('build/img'));
+});
 
 gulp.task('styles', function(){
     return gulp.src('src/styles/style.less')
