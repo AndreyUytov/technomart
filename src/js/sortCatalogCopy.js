@@ -1,3 +1,3 @@
-var catalogItems = document.querySelector('.list-flex-wrap--catalog');
-var templateItem = document.querySelector('.template-item').content.querySelector('li');
-
+const catalogItems = document.querySelector('.list-flex-wrap--catalog');
+const perv = cards[3];
+perv.renderCard (catalogItems);

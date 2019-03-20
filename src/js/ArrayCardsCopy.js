@@ -1,10 +1,21 @@
-'use strict';
 
-var Card = function (name, oldPrice, currentPrice, srcImage) {
-    this.name = name,
-    this.oldPrice = oldPrice,
-    this.currentPrice = currentPrice,
-    this.srcImage = srcImage
+const templateItem = document.querySelector('.template-item').content.querySelector('li');
+
+class Card  {
+    constructor(name, oldPrice, currentPrice, srcImage) {
+        this.name = name;
+        this.oldPrice = oldPrice;
+        this.currentPrice = currentPrice;
+        this.srcImage = srcImage;
+   }
+   renderCard(place) {
+    const template = templateItem.cloneNode(true);
+    template.querySelector('h3').textContent = name;
+    template.querySelector('del').textContent = oldPrice;
+    template.querySelector('.price-btn').textContent = currentPrice + ' Р.';
+    template.querySelector('img').src = srcImage;
+    place.appendChild(template);
+   }
 };
 
 var cards = [
@@ -37,12 +48,3 @@ var cards = [
     new Card('Перфоратор INTERSCOL 2660','30000 P.','9500 P.','img/snippet4.jpg'),
     new Card('Перфоратор INTERSCOL 1560','18500 P.','6500 P.','img/snippet3.jpg'),
 ];
-
-var Page = function (numberPage,arrObj) {
-    this.numberPage = numberPage,
-    this.arrObj = arrObj
-};
-
-Page.prototype.createPage = function (){
-    
-}   
